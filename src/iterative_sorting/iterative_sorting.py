@@ -12,7 +12,8 @@ def selection_sort( arr ):
                 
                 
         # TO-DO: swap
-        arr[i], arr[smallest_index] = arr[smallest_index], arr[i]
+        if smallest_index != i:
+            arr[i], arr[smallest_index] = arr[smallest_index], arr[i]
         
 
     return arr
