@@ -22,19 +22,18 @@ def merge( arrA, arrB ):
 
     return merged_arr
 
-print(merge([2, 4, 9], [8, 3, 7]))
+# print(merge([2, 4, 9], [8, 3, 7]))
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort( arr ):
     # TO-DO
-    if len(arr) <= 1:
-        return arr
+    if len(arr) > 1:
     
-    middle = int(len(arr) / 2)
+        middle = int(len(arr) / 2)
+        arrA = merge_sort(arr[:middle])
+        arrB = merge_sort(arr[middle:]) 
 
-    arrA, arrB = merge_sort(arr[:middle]), merge_sort(arr[middle:])
-
-    arr = merge(arrA, arrB)
+        arr = merge(arrA, arrB)
 
     return arr
 
