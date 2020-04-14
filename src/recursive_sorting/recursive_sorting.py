@@ -1,15 +1,59 @@
 # TO-DO: complete the helpe function below to merge 2 sorted arrays
-def merge( arrA, arrB ):
-    elements = len( arrA ) + len( arrB )
-    merged_arr = [0] * elements
-    # TO-DO
+# this version is working except it is repeating numbers that are the same
+# def merge( arrA, arrB ):
     
+#     elements = len( arrA ) + len( arrB )
+#     merged_arr = []
+#     # TO-DO
+#     i = 0
+#     j = 0
+
+#     for num in range (0, elements):
+#         if i >= len(arrA):
+#             merged_arr.append(arrB[j])
+#         elif j >= len(arrB):
+#             merged_arr.append(arrA[i])
+#             i += 1
+#         elif arrA[i] <= arrB[j]:
+#             merged_arr.append(arrA[i])
+#             i += 1
+#         elif arrA[i] > arrB[j]:
+#             merged_arr.append(arrB[j])
+#             j += 1
+
+#     return merged_arr
+
+# print(merge([2, 4, 9], [8, 3, 7]))
+
+def merge(arrA, arrB):
+    i = 0
+    j = 0
+    merged_arr = []
+
+    while i < len(arrA) and j < len(arrB):
+        if arrA[i] < arrB[j]:
+            merged_arr.append(arrA[i])
+            i += 1
+        else:
+            merged_arr.append(arrB[j])
+            j += 1
+
+    merged_arr += arrA[i:]
+    merged_arr += arrB[j:]
+
     return merged_arr
 
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort( arr ):
     # TO-DO
+    if len(arr) > 1:
+    
+        middle = int(len(arr) / 2)
+        arrA = merge_sort(arr[:middle])
+        arrB = merge_sort(arr[middle:]) 
+
+        arr = merge(arrA, arrB)
 
     return arr
 
